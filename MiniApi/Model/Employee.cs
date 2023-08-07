@@ -1,7 +1,10 @@
-﻿namespace MiniApi.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MiniApi.Model
 {
     public class Employee
     {
+        [Key]
         public string EmproyeeId { get; set; }
         public string EmployeeName { get; set; }
         public string Citizenship { get; set; }

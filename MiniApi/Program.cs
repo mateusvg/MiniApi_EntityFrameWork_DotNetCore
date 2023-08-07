@@ -21,22 +21,22 @@ app.Map("/employee", (Func<Employee>)(() =>
 }
 ));
 
-app.MapGet("/employees", (Func<List<Employee>>)(() =>
-{
-    return new EmployeeCollection().GetEmployees();
-}));
+//app.MapGet("/employees", (Func<List<Employee>>)(() =>
+//{
+//    return new EmployeeCollection().GetEmployees();
+//}));
 
-app.MapGet("/employee/{id}", async (http) =>
-{
-    if (!http.Request.RouteValues.TryGetValue("id", out var id))
-    {
-        http.Response.StatusCode = 400;
-        return;
-    }
-    else
-    {
-        await http.Response.WriteAsJsonAsync(new EmployeeCollection().GetEmployees().FirstOrDefault(x => x.EmproyeeId == (string)id));
-    }
-});
+//app.MapGet("/employee/{id}", async (http) =>
+//{
+//    if (!http.Request.RouteValues.TryGetValue("id", out var id))
+//    {
+//        http.Response.StatusCode = 400;
+//        return;
+//    }
+//    else
+//    {
+//        await http.Response.WriteAsJsonAsync(new EmployeeCollection().GetEmployees().FirstOrDefault(x => x.EmproyeeId == (string)id));
+//    }
+//});
 
 app.Run();
